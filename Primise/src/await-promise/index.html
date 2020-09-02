@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>await-promise</title>
+</head>
+<body>
+  
+</body>
+<script src="./index.js"></script>
+<script>
+  const genPromise = function(value, time) {
+    return new Promise(function(resolve, reject){
+      setTimeout(function() {
+        console.log(value)
+        resolve(value);
+      }, time)
+    })
+  };
+
+  throw new Error('123')
+
+  order([
+    () => genPromise('a', 1000),
+    () => genPromise('b', 1000),
+    () => genPromise('c', 1000),
+  ]);
+</script>
+</html>
